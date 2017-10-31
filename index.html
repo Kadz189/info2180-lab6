@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    
+    <title> Ajax </title>
+    
+    <script type="text/javascript">
+        function getAjax (){    
+            var httpRequest = new XMLHttpRequest();
+            var url = "https://kadeemphp-kadz189.c9users.io/request.php?q=definition";
+            httpRequest.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200) {
+                    alert(httpRequest.responseText);
+      
+                }
+            };
+            httpRequest.open('GET', url);
+            httpRequest.send();
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <button id="ajax" onclick = getAjax()>   Search    </button>
+
+
+</body>
+
+</html>
