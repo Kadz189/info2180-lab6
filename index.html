@@ -10,13 +10,15 @@
             var url = "https://kadeemphp-kadz189.c9users.io/request.php?q=definition";
             httpRequest.onreadystatechange = function() {
                  if (this.readyState == 4 && this.status == 200) {
-                    alert(httpRequest.responseText);
+                     var response = httpRequest.responseText;
+                    alert(response);
       
                 }
             };
-            httpRequest.open('GET', url);
+            httpRequest.open('GET', url, true);
             httpRequest.send();
         }
+
 
     </script>
 </head>
@@ -24,7 +26,25 @@
 <body>
 
     <button id="ajax" onclick = getAjax()>   Search    </button>
+    
+    <form id="formid" action="request.php" target="RESULT" >
+  <select name="q">
+    <option value="definition">definition</option>
+    <option value="bar">bar</option>
+    <option value="ajax">ajax</option>
+    <option value="html">html</option>
+    <option value="css">css</option>
+    <option value="javascript">javascript</option>
+    <option value="php">php</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
 
+<div id='result'>
+<iframe name="RESULT" style="width: 400px; height: 200px;"></iframe>
+ </div>   
+  
 
 </body>
 
