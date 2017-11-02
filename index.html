@@ -1,50 +1,90 @@
 <html>
 
 <head>
-    
-    <title> Ajax </title>
-    
+
+    <link rel="stylesheet" href="index.css">
+    <title> PHP </title>
+    <div id = 'Title'>
+      <h2> PHP Web Dictionary </h2>
+    </div>
     <script type="text/javascript">
-        function getAjax (){    
+        function getPHP (){
             var httpRequest = new XMLHttpRequest();
             var url = "https://kadeemphp-kadz189.c9users.io/request.php?q=definition";
             httpRequest.onreadystatechange = function() {
                  if (this.readyState == 4 && this.status == 200) {
                      var response = httpRequest.responseText;
                     alert(response);
-      
+
                 }
             };
             httpRequest.open('GET', url, true);
             httpRequest.send();
         }
 
+        function allDef(url){
+                     var httpRequestnew = new XMLHttpRequest();
 
+                     httpRequestnew.onreadystatechange = function()
+                     {
+                         if (httpRequestnew.readyState == XMLHttpRequest.DONE)
+                         {
+                             if(httpRequestnew.status == 200)
+                             {
+                                 var ol = document.createElement("ol");
+                                 var li = document.createElement("li");
+                                 var h3 = document.createElement("h3");
+                                 var p1 = document.createElement("p");
+                                 var p2 = document.createElement("p");
+
+                                 var res2 = document.createTextNode("httpRequest.responseText");
+                                 ol.appendChild(li);
+                                 document.body.appendChild(ol);
+
+                             }
+                             else
+                             {
+                                alert("There is an error");
+                             }
+                         }
+                     };
+                    httpRequestnew.open('GET',url,true);
+                    httpRequestnew.send();
+
+}
     </script>
 </head>
 
 <body>
+      <div id = 'buttons'>
+            <button id="PHP" onclick = getPHP('request.php?q=')>   Search    </button>
+            <button id="allDef('request.php?q=&all=true')" onclick = function()>   Get All Definitions   </button>
+      </div>
 
-    <button id="ajax" onclick = getAjax()>   Search    </button>
-    
+      <br>
+
+      <p> <em>Look up the definition of a programming language </em></p>
+
     <form id="formid" action="request.php" target="RESULT" >
-  <select name="q">
-    <option value="definition">definition</option>
-    <option value="bar">bar</option>
-    <option value="ajax">ajax</option>
-    <option value="html">html</option>
-    <option value="css">css</option>
-    <option value="javascript">javascript</option>
-    <option value="php">php</option>
-  </select>
+        <select name="q">
+        <option value="definition">definition</option>
+        <option value="bar">bar</option>
+        <option value="ajax">ajax</option>
+        <option value="html">html</option>
+        <option value="css">css</option>
+        <option value="javascript">javascript</option>
+        <option value="php">php</option>
+        </select>
   <br><br>
+
   <input type="submit">
 </form>
 
-<div id='result'>
-<iframe name="RESULT" style="width: 400px; height: 200px;"></iframe>
- </div>   
-  
+<div id='result'> <ol> </ol>
+  <p> <em>Meanings:</em> </p>
+<iframe id ="frame" name="RESULT" style="width: 400px; height: 200px;"></iframe>
+ </div>
+
 
 </body>
 

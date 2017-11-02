@@ -1,0 +1,22 @@
+#Title{
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+html{
+  text-align: center;
+  background-color: #F5F5DC;
+}
+
+
+#frame{
+  margin: 0;
+padding: 0;
+border: none;
+width: 250px;
+height: 250px;
+
+
+}
