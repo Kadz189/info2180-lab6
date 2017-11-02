@@ -8,57 +8,46 @@
       <h2> PHP Web Dictionary </h2>
     </div>
     <script type="text/javascript">
-        function getPHP (){
+        function getPHP (url){
             var httpRequest = new XMLHttpRequest();
             var url = "https://kadeemphp-kadz189.c9users.io/request.php?q=definition";
             httpRequest.onreadystatechange = function() {
                  if (this.readyState == 4 && this.status == 200) {
                      var response = httpRequest.responseText;
                     alert(response);
-
                 }
             };
             httpRequest.open('GET', url, true);
             httpRequest.send();
         }
 
-        function allDef(url){
+        function allDef(url2){
                      var httpRequestnew = new XMLHttpRequest();
-
-                     httpRequestnew.onreadystatechange = function()
-                     {
-                         if (httpRequestnew.readyState == XMLHttpRequest.DONE)
-                         {
-                             if(httpRequestnew.status == 200)
-                             {
+                     var url2 = httpRequestnew =  "https://kadeemphp-kadz189.c9users.io/request.php?q=definition";
+                     httpRequestnew.onreadystatechange = function(){
+                         if (this.readyState == 4 && this.status == 200) {
                                  var ol = document.createElement("ol");
                                  var li = document.createElement("li");
                                  var h3 = document.createElement("h3");
                                  var p1 = document.createElement("p");
                                  var p2 = document.createElement("p");
-
-                                 var res2 = document.createTextNode("httpRequest.responseText");
+                                 var response2 = document.createTextNode("httpRequestnew.responseText");
                                  ol.appendChild(li);
                                  document.body.appendChild(ol);
-
-                             }
-                             else
-                             {
-                                alert("There is an error");
-                             }
+                                 alert(httpRequestnew.responseText);
                          }
                      };
-                    httpRequestnew.open('GET',url,true);
+                    httpRequestnew.open('GET',url2,true);
                     httpRequestnew.send();
 
-}
+        }
     </script>
 </head>
 
 <body>
       <div id = 'buttons'>
             <button id="PHP" onclick = getPHP('request.php?q=')>   Search    </button>
-            <button id="allDef('request.php?q=&all=true')" onclick = function()>   Get All Definitions   </button>
+            <button id="allDef" onclick = allDef('request.php?q=&all=true')>   Get All Definitions   </button>
       </div>
 
       <br>

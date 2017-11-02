@@ -14,7 +14,7 @@ if (q == "&all=true")
     <definition name="bar" author="Matthew">
     a place that sells alcholic beverages
     </definition>
-    <definition name="ajax" author="Kadeem">         
+    <definition name="ajax" author="Kadeem">
     technique which involves the use of javascript and xml
     </definition>
     <definition name="html" author="Barry">
